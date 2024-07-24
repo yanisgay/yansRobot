@@ -33,7 +33,7 @@ public class Shlong extends SubsystemBase {
      m_pidGains = new PIDGains(Constants.Shlong.P, Constants.Shlong.I, Constants.Shlong.D);
 
      m_rightMotor.setSmartCurrentLimit(Constants.Shlong.SmartCurrentLimit);
-     m_rightMotor.setInverted(Constants.Shlong.Inverted);
+     m_rightMotor.setInverted(Constants.Shlong.rightInverted);
      m_rightMotor.setIdleMode(IdleMode.kBrake);
      
      m_rightController = m_rightMotor.getPIDController();
@@ -41,7 +41,7 @@ public class Shlong extends SubsystemBase {
      m_rightMotor.burnFlash();
 
      m_leftMotor.setSmartCurrentLimit(Constants.Shlong.SmartCurrentLimit);
-     m_leftMotor.setInverted(Constants.Shlong.Inverted);
+     m_leftMotor.setInverted(Constants.Shlong.leftInverted);
      m_leftMotor.setIdleMode(IdleMode.kBrake);
      
      m_leftController = m_leftMotor.getPIDController();

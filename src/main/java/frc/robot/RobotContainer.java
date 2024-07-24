@@ -32,7 +32,7 @@ public class RobotContainer {
     joystick.square().onTrue(new CoolSetIntakePower(m_intake, 0.5));
     joystick.triangle().onTrue(new DisableMotors(m_intake));
     joystick.circle().onTrue(new DisableShlongMotors(m_shlong));
-    joystick.cross().onTrue(new SetShlongPosition(m_shlong, 0.4));
+    joystick.cross().onTrue(new SetShlongPosition(m_shlong, 0.15));
     SmartDashboard.putData("resetShlongsPosition", new ShlongResetPosition(m_shlong,0));
 
   }

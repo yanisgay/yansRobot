@@ -18,18 +18,19 @@ public final class Constants {
   }
 
   public static class  Intake {
-    public static final int MotorID = 0;
+    public static final int MotorID = 25;
     public static final int SmartCurrentLimit = 40;
-    public static final boolean Inverted = false;
+    public static final boolean Inverted = true;
     
   }
 
   public static class Shlong{
     public static final int LeftMotorID = 26;
-    public static final int RightMotorID = 25;
+    public static final int RightMotorID = 27;
     public static final int SmartCurrentLimit = 40;
-    public static final boolean Inverted = false;
-    public static final double P = 0.15;
+    public static final boolean leftInverted = true;
+    public static final boolean rightInverted = false;
+    public static final double P = 0.65;
     public static final double I = 0;
     public static final double D = 0;
     public static final double PositionConversionFactor = 0.045466 * Math.PI;
