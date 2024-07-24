@@ -1,0 +1,9 @@
+1. create a function to set power to the motor (percentOutput)
+
+2. create a command 
+
+3. bind the command to a joystick button
+
+4. add disable motors method to intake subsystem 
+
+5. create an instatnt command disable Intake
