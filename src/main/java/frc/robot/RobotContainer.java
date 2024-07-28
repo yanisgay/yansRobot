@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandPS5Controller;
 import frc.robot.commands.ElevatorCommands.ResetElevatorPosition;
+import frc.robot.commands.ElevatorCommands.SetElevatorPosition;
+import frc.robot.commands.ElevatorCommands.SetElevatorPower;
 import frc.robot.commands.ElevatorCommands.SetElevatorStates;
 import frc.robot.commands.IntakeCommands.CoolSetIntakePower;
 import frc.robot.commands.IntakeCommands.DisableMotors;
@@ -42,7 +44,8 @@ public class RobotContainer {
     SmartDashboard.putData("resetElevatorPosition", new ResetElevatorPosition(m_elevator,0));
     joystick.square().onTrue(new SetElevatorStates(ElevatorStates.FLOOR, m_elevator));
     joystick.circle().onTrue(new SetElevatorStates(ElevatorStates.MID, m_elevator));
-
+    joystick.cross().onTrue(new SetElevatorPower(m_elevator, 0.1));
+    joystick.triangle().onTrue(new SetElevatorPower(m_elevator, -0.1));
 
   }
 

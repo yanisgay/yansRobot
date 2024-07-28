@@ -6,13 +6,14 @@ package frc.robot.subsystems;
 
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.ControlRequest;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.PositionVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.GravityTypeValue;
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -32,12 +33,14 @@ public class Elevator extends SubsystemBase {
 
     m_motorConfiguration.SoftwareLimitSwitch
     .withForwardSoftLimitEnable(Constants.Elevator.ForwardSoftLimitEnable)
-    .withForwardSoftLimitThreshold(Constants.Elevator.ForwardSoftLimitThreshold)
+    .withForwardSoftLimitThreshold(unitsToRotations(Constants.Elevator.ForwardSoftLimitThreshold))
     .withReverseSoftLimitEnable(Constants.Elevator.ReverseSoftLimitEnable)
     .withReverseSoftLimitThreshold(Constants.Elevator.ReverseSoftLimitThreshold);
 
     m_motorConfiguration.Feedback.withSensorToMechanismRatio(Constants.Elevator.SensorToMechanismRatio);
     m_motorConfiguration.MotorOutput.withNeutralMode(NeutralModeValue.Brake);
+
+    m_motorConfiguration.MotorOutput.withInverted(InvertedValue.Clockwise_Positive);
 
     m_motorConfiguration.Slot0.withKP(Constants.Elevator.KP);
     m_motorConfiguration.Slot0.withKI(Constants.Elevator.KI);
@@ -58,7 +61,7 @@ public class Elevator extends SubsystemBase {
   }
 
   public void setPosition(double position){
-    m_masterMotor.setControl(m_positionControl.withSlot(0).withPosition(position));
+    m_masterMotor.setControl(m_positionControl.withSlot(0).withPosition(unitsToRotations(position)));
   }
 
   public void disableMotors(){
@@ -81,6 +84,7 @@ public class Elevator extends SubsystemBase {
 
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("ElevatorPosition",rotationToUnits(m_masterMotor.getPosition().getValueAsDouble()));
     // This method will be called once per scheduler run
   }
 }

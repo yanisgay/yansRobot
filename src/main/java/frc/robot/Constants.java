@@ -37,27 +37,27 @@ public final class Constants {
   }
 
    public static class Elevator{
-    public static final int MasterMotorID = 0;
-    public static final int SlaveMotorID = 0;
-    public static final double SensorToMechanismRatio = 12.17 ;
+    public static final int MasterMotorID = 5;
+    public static final int SlaveMotorID = 6;
+    public static final double SensorToMechanismRatio = 12.17;
     public static final double SprocketDiameter = 0.0363728;
-    public static final double KP = 0;
-    public static final double KI = 0;
-    public static final double KD = 0;
+    public static final double KP = 3;
+    public static final double KI = 0.1;
+    public static final double KD = 1;
     public static final double KS = 0;
     public static final double KV = 0;
-    public static final double KG = 0;
+    public static final double KG = 0.18;
     public static final double SupplyCurrentLimit = 40;
     public static final boolean CurrentLimitEnable = true;
     public static final boolean ForwardSoftLimitEnable = true;
-    public static final double ForwardSoftLimitThreshold = 0;
+    public static final double ForwardSoftLimitThreshold = 0.85;
     public static final boolean ReverseSoftLimitEnable = true;
     public static final double ReverseSoftLimitThreshold = 0;
    }
 
 
    public static class ElevatorStates{
-    public static final double FloorPosition = 0;
+    public static final double FloorPosition = 0.0;
     public static final double AmpPosition = 0.85;
     public static final double MidPosition = 0.4;
 
